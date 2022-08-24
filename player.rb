@@ -3,13 +3,12 @@ class Player
 
   def initialize(name)
     @name = name
-    @score = 0
-    @lives = 3
+    @score = 3
   end
 
 end
 
-#test
+test
 caitlin = Player.new("Caitlin")
 puts caitlin.name
 puts caitlin.score
@@ -17,7 +16,5 @@ puts caitlin.lives
 
 caitlin.name = "cjc"
 puts caitlin.name
-caitlin.score += 1
+caitlin.score -= 1
 puts caitlin.score
-caitlin.lives -= 1
-puts caitlin.lives

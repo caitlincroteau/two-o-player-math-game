@@ -2,65 +2,65 @@ require './player.rb'
 
 class Game
   def initialize(p1, p2)
-    @current_player = p1
-    @current_question = ""
-    @game_over = 0
+    @current_player = true
+    @game_over = false
+    @p1 = p1
+    @p2 = p2
 
-    puts "You've initialized a game!"
+    puts "Welcome! Start a new game!"
     
   end
 
   def start()
-    while @game_over == 0
-    
-    @correct_answer = self.generate_question(@current_player)
-    @input = gets.chomp
-      if @input == @correct_answer
-        puts "that's correct!"
-        puts @current_player.score
+    while @game_over == false
+
+      if @current_player == true
+        self.generate_question(@p1)
       else
-        puts "that's incorrect!"
-        @current_player.score -= 1
-        puts @current_player.score
+        self.generate_question(@p2)
       end
 
-      if @current_player.score == 0
-        @game_over = 1
-      end
-
-      if @game_over == 1
+      if @game_over == true
         self.game_over()
       else
         puts "---NEW TURN---"
+        @current_player = !@current_player
       end
-      #switch players here
     end    
   end
 
   def generate_question(player)
-    puts "generating question for #{player.name}"
-    puts "what is 5 + 2?"
-    return "7"
-  
+    @num1 = rand(0..20)
+    @num2 = rand(0..20)
+    @answer = @num1 + @num2
+    
+    # puts "#{player.name}: what does #{@num1} + #{@num2} equal?"
+    # puts "#{player.name}: what does #{@num1} - #{@num2} equal?"
+    # puts "#{player.name}: what does #{@num1} + #{@num2} equal?"
+    # puts "#{player.name}: what does #{@num1} + #{@num2} equal?"
+
+    @input = gets.chomp
+
+    if @input.to_i == @answer
+      puts "#{player.name}: YES! You are correct!"
+      puts "P1: #{@p1.score}/3 vs P2: #{@p2.score}/3"
+    else
+      puts "#{player.name}: Seriously? No!"
+      player.score -= 1
+      puts "P1: #{@p1.score}/3 vs P2: #{@p2.score}/3"
+    end
+
+    if player.score  == 0
+      @game_over = true
+    end
+
   end
 
   def game_over()
-    puts "GAME OVER"
+
+    puts "-----GAME OVER-----"
+    puts "Good bye!"
   end
-
-  # def current_player()
-
-  # end
-  # #manage current player
-  # #manage current question
-
-  # #manage input
-  # def player_answer()
-  #   @answer = gets.chomp()
-  # end
-
-  #output player message
-  #output score
 
 end
 

@@ -22,6 +22,7 @@ class Game
 
       if @game_over == true
         self.game_over()
+        #need to put Player x wins with a score of y/3
       else
         puts "---NEW TURN---"
         @current_player = !@current_player
@@ -42,17 +43,16 @@ class Game
 
     if @input.to_i == @answer
       puts "#{player.name}: YES! You are correct!"
-      puts "P1: #{@p1.score}/3 vs P2: #{@p2.score}/3"
+      puts "#{@p1.name}: #{@p1.score}/3 vs #{@p2.name}: #{@p2.score}/3"
     else
       puts "#{player.name}: Seriously? No!"
       player.score -= 1
-      puts "P1: #{@p1.score}/3 vs P2: #{@p2.score}/3"
+      puts "#{@p1.name}: #{@p1.score}/3 vs #{@p2.name}: #{@p2.score}/3"
     end
 
     if player.score  == 0
       @game_over = true
     end
-
   end
 
   def game_over()

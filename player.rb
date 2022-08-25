@@ -7,14 +7,3 @@ class Player
   end
 
 end
-
-# test
-# caitlin = Player.new("Caitlin")
-# puts caitlin.name
-# puts caitlin.score
-# puts caitlin.lives
-
-# caitlin.name = "cjc"
-# puts caitlin.nameThis
-# caitlin.score -= 1
-# puts caitlin.score

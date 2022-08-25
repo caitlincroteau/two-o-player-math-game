@@ -32,12 +32,11 @@ class Game
   def generate_question(player)
     @num1 = rand(0..20)
     @num2 = rand(0..20)
-    @answer = @num1 + @num2
-    
-    # puts "#{player.name}: what does #{@num1} + #{@num2} equal?"
-    # puts "#{player.name}: what does #{@num1} - #{@num2} equal?"
-    # puts "#{player.name}: what does #{@num1} + #{@num2} equal?"
-    # puts "#{player.name}: what does #{@num1} + #{@num2} equal?"
+    @operators = [:+, :-, :*, :/]
+    @operator = @operators.sample()
+    @answer = @num1.send(@operator, @num2)
+   
+    puts "#{player.name}: what does #{@num1} #{@operator} #{@num2} equal?"
 
     @input = gets.chomp
 

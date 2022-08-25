@@ -36,8 +36,8 @@ class Game
   #generate questions
   def generate_question(player)
     #create random numbers
-    @num1 = rand(0..20)
-    @num2 = rand(0..20)
+    @num1 = rand(1..20)
+    @num2 = rand(1..20)
     @operators = [:+, :-, :*, :/]
     #grab a random operator
     @operator = @operators.sample()
@@ -70,7 +70,7 @@ class Game
     puts "-----GAME OVER-----"
     puts "Good bye!"
   end
-  
+
 end
 
 

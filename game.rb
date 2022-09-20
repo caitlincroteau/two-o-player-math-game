@@ -66,6 +66,11 @@ class Game
 
   #run this function when the game is over (a player's score goes to 0).
   def game_over()
+    if @current_player == true
+      puts "Player 2 wins with a score of #{@p2.score}/3"
+    else
+      puts "Player 1 wins with a score of #{@p1.score}/3"
+    end
 
     puts "-----GAME OVER-----"
     puts "Good bye!"

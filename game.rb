@@ -24,7 +24,6 @@ class Game
       #check status of @game_over
       if @game_over == true
         self.game_over()
-        #need to put Player x wins with a score of y/3
       else
         #if game not over, switch current player and continue game loop to next turn
         puts "---NEW TURN---"
